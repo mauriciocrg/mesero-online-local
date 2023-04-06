@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.mesero.bean.Pedido" table="Pedido">
+      <meta attribute="class-description">
+         This class contains the employee detail. 
+      </meta>
+      
+      <id name="id_pedido" column="id_pedido" type="int">
+   		<generator class="increment"/>
+      </id>
+	
+      <property name="tipo_pedido" column="tipo_pedido" type="int"/>
+      <property name="estado" column="estado" type="int"/>
+      <property name="numeroMesa" column="numeroMesa" type="int"/>
+      <property name="comentario" column="comentario" type="string"/>
+      <property name="fecha" column="fecha" type="timestamp"/>
+      
+      <set name="items" table="PedidoItem" inverse="true" lazy="false" fetch="select">
+		<key>
+		    <column name="id_pedido" not-null="true" />
+		</key>
+		<one-to-many class="com.mesero.bean.PedidoItem" />
+      </set>
+      
+      <many-to-one name="cliente" class="com.mesero.bean.Cliente" column="telefono_cliente" lazy="false"/>
+       
+   </class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.mesero.bean.MenuItem" table="MenuItem">
+      <meta attribute="class-description">
+         This class contains the employee detail. 
+      </meta>
+      
+      <id name="nombre_menuItem" column="nombre_menuItem" type="string"/>
+	  
+      <set name="ingredientes" cascade="save-update" table="Ingrediente_MenuItem" lazy="false">
+        
+         <key> 
+             <column name="nombre_menuItem"/>
+         </key>
+         
+         <many-to-many column="id_ingrediente" class="com.mesero.bean.Ingrediente"/>
+      </set>
+      
+
+      <property name="precio" column="precio" type="double"/>
+      <property name="imageName" column="imageName" type="string"/>
+      <property name="hay" column="hay" type="int"/>
+      
+      <many-to-one name="menu" class="com.mesero.bean.Menu" column="nombre_menu" lazy="false"/>
+       
+   </class>
+</hibernate-mapping>
