@@ -1,0 +1,45 @@
+@import "addons.scss";
+@import "mesero_online_local.scss";
+
+/* This file prefixes all rules with the theme name to avoid causing conflicts with other themes. */
+/* The actual styles should be defined in mesero_online_local.scss */
+.mesero_online_local {
+  @include addons;
+  @include mesero_online_local;
+}
+
+.v-fontSize {
+	font-size: 20px;
+}
+.v-border {
+	border: 5px solid rgba(255, 255, 255, .5);
+}
+
+.v-fondo {
+	background-color:#9999FF;
+}
+
+.v-backgraund-gray{
+  	background-color: gray;
+ }
+
+.v-table-row.v-table-row-highlight-green,
+.v-table-row-odd.v-table-row-highlight-green {
+	background-color: #00ff00;
+}
+
+.v-table-row.v-table-row-highlight-yellow,
+.v-table-row-odd.v-table-row-highlight-yellow {
+	background-color: #ffff00;
+}
+
+.v-table-row.v-table-row-highlight-red,
+.v-table-row-odd.v-table-row-highlight-red {
+	background-color: #ff0000;
+}
+
+
+.v-table-row.v-table-row-highlight-menu,
+.v-table-row-odd.v-table-row-highlight-menu {
+	background-color: #9999FF;
+}
